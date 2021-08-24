@@ -1,0 +1,12 @@
+<h1>Home component works!!</h1>
+<nav mat-tab-nav-bar>
+  <a
+    mat-tab-link
+    *ngFor="let tab of tabs"
+    [routerLink]="tab.link"
+    [active]="abaSelecionada.label === tab.label"
+    (click)="abaSelecionada = tab"
+    >{{ tab.label }}</a
+  >
+</nav>
+<router-outlet></router-outlet>
