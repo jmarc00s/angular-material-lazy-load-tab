@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TabModel } from './models/tab.model';
+import { HomeService } from './services/home.service';
 
 @Component({
   templateUrl: './view/home.component.html',
@@ -13,7 +15,14 @@ export class HomeComponent implements OnInit {
 
   abaSelecionada = this.tabs[0];
 
-  constructor() {}
+  constructor(private _router: Router, private _homeService: HomeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._iniciarAbas();
+  }
+
+  private _iniciarAbas(): void {
+    this._homeService.id = 1000;
+    this._router.navigate(['home', 'ligacao']);
+  }
 }
